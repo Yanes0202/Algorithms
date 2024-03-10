@@ -1,4 +1,4 @@
-package org.adrian.com;
+package org.adrian.com.algorithms.section_sort;
 
 public class SectionSort {
 

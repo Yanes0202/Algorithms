@@ -1,4 +1,7 @@
-package org.adrian.com;
+package org.adrian.com.algorithms;
+
+import org.adrian.com.algorithms.binary_search.BinarySearch;
+import org.adrian.com.algorithms.section_sort.SectionSort;
 
 import java.util.Arrays;
 import java.util.Random;

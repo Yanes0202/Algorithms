@@ -1,4 +1,4 @@
-package org.adrian.com;
+package org.adrian.com.algorithms.binary_search;
 
 public class BinarySearch {
     private BinarySearch(){}
@@ -8,11 +8,11 @@ public class BinarySearch {
         int high = list.length - 1;
         while (low <= high) {
             int mid = (low + high) / 2;
-            int quess = list[mid];
-            if (quess == expected) {
+            int guess = list[mid];
+            if (guess == expected) {
                 return mid;
             }
-            if (quess > expected) {
+            if (guess > expected) {
                 high = mid - 1;
             } else {
                 low = mid + 1;
