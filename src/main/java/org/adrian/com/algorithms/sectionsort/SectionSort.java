@@ -1,10 +1,10 @@
-package org.adrian.com.algorithms.section_sort;
+package org.adrian.com.algorithms.sectionsort;
 
 public class SectionSort {
 
     private SectionSort() {}
 
-    public static int[] sectionSort(int[] arr) {
+    public static int[] sort(int[] arr) {
         int[] newArr = new int[arr.length];
         for (int i = 0; i < arr.length; i++) {
             int smallestIndex = findSmallest(arr);
