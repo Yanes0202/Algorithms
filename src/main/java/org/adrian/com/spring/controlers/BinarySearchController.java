@@ -1,14 +1,16 @@
 package org.adrian.com.spring.controlers;
 
-import org.adrian.com.algorithms.binarysearch.BinarySearch;
-import org.adrian.com.algorithms.binarysearch.BinarySearchResult;
+import org.adrian.com.spring.services.BinarySearchService;
+import org.adrian.com.spring.models.AlgorithmsResult;
 import org.adrian.com.spring.models.BinarySearchRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/binarySearch")
 public class BinarySearchController {
-    BinarySearch binarySearch = new BinarySearch();
+    @Autowired
+    BinarySearchService binarySearchService;
     @GetMapping("/getTable")
     public int[] getTable(@RequestParam(name = "size") int size) {
         int[] result = new int[size];
@@ -19,7 +21,7 @@ public class BinarySearchController {
     }
 
     @PostMapping("/search")
-    public BinarySearchResult binarySearch(@RequestBody BinarySearchRequest request) {
-        return binarySearch.search(request.array(), request.expected());
+    public AlgorithmsResult binarySearch(@RequestBody BinarySearchRequest request) {
+        return binarySearchService.search(request.array(), request.expected());
     }
 }
