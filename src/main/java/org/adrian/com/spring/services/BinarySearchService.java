@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class BinarySearchService {
-    private final AlgorithmsResult result = new AlgorithmsResult();
 
     public AlgorithmsResult search(int[] list, int expected) {
+        AlgorithmsResult result = new AlgorithmsResult();
         Counter counter = new Counter();
         counter.start();
         int low = 0;

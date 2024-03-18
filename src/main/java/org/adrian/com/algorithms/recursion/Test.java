@@ -2,7 +2,6 @@ package org.adrian.com.algorithms.recursion;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Stack;
 
 public class Test {
     public static void main(String[] args) {

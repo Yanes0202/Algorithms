@@ -1,12 +1,13 @@
 package org.adrian.com.spring.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.*;
 
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonSerialize
+@Getter
 public class AlgorithmsResult {
     private Object result;
     private String time;
