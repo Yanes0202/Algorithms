@@ -6,10 +6,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class BinarySearchService {
-    private final Counter counter = new Counter();
 
     public AlgorithmsResult search(int[] list, int expected) {
-        counter.start();
+        Counter.start();
         int iterations = 1;
         int low = 0;
         int high = list.length - 1;
@@ -17,7 +16,7 @@ public class BinarySearchService {
             int mid = (low + high) / 2;
             int guess = list[mid];
             if (guess == expected) {
-                return AlgorithmsResult.build(mid, counter.stop(), iterations);
+                return AlgorithmsResult.build(mid, Counter.stop(), iterations);
             }
             if (guess > expected) {
                 high = mid - 1;
@@ -26,6 +25,6 @@ public class BinarySearchService {
             }
             iterations++;
         }
-        return AlgorithmsResult.build(-1, counter.stop(), iterations);
+        return AlgorithmsResult.build(-1, Counter.stop(), iterations);
     }
 }

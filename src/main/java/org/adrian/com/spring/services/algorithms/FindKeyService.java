@@ -10,21 +10,20 @@ import java.util.Deque;
 @Service
 public class FindKeyService {
     private Integer iterations;
-    private final Counter counter = new Counter();
 
     public AlgorithmsResult lookForKeyRecursion(Deque<Box> stack) {
         if(iterations == null) iterations = 1;
-        counter.start();
+        Counter.start();
         Box checkedBox = stack.pop();
         if (checkedBox.isKey()) {
-            return AlgorithmsResult.build(true, counter.stop(), iterations);
+            return AlgorithmsResult.build(true, Counter.stop(), iterations);
         } else {
             for (Box box: checkedBox.getBoxesInside()) {
                 stack.push(box);
             }
             iterations++;
             if (stack.isEmpty()) {
-                AlgorithmsResult algorithmsResult = AlgorithmsResult.build(false, counter.stop(), iterations);
+                AlgorithmsResult algorithmsResult = AlgorithmsResult.build(false, Counter.stop(), iterations);
                 iterations = null;
                 return algorithmsResult;
             } else {
@@ -35,11 +34,11 @@ public class FindKeyService {
 
     public AlgorithmsResult lookForKeyWhile(Deque<Box> stack) {
         iterations = 1;
-        counter.start();
+        Counter.start();
         while (!stack.isEmpty()) {
             Box checkedBox = stack.pop();
             if (checkedBox.isKey()) {
-                return AlgorithmsResult.build(true, counter.stop(), iterations);
+                return AlgorithmsResult.build(true, Counter.stop(), iterations);
             } else {
                 for (Box box : checkedBox.getBoxesInside()) {
                     stack.push(box);
@@ -47,6 +46,6 @@ public class FindKeyService {
                 iterations++;
             }
         }
-        return AlgorithmsResult.build(false, counter.stop(), iterations);
+        return AlgorithmsResult.build(false, Counter.stop(), iterations);
     }
 }

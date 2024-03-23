@@ -1,13 +1,15 @@
 package org.adrian.com.utils;
 
 public class Counter {
-    private long startTime;
+    private static long startTime;
 
-    public void start() {
+    public static void start() {
         startTime = System.nanoTime();
     }
 
-    public String stop() {
+    public static String stop() {
         return "Processed in %s microseconds".formatted((System.nanoTime() - startTime) / 1_000);
     }
+
+    private Counter() {}
 }

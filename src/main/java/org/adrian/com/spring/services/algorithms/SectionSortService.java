@@ -7,10 +7,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class SectionSortService {
     private Integer iterations;
-    private final Counter counter = new Counter();
 
     public AlgorithmsResult sort(int[] arr) {
-        counter.start();
+        Counter.start();
         iterations = 0;
         int[] newArr = new int[arr.length];
         for (int i = 0; i < arr.length; i++) {
@@ -18,7 +17,7 @@ public class SectionSortService {
             newArr[i] = arr[smallestIndex];
             arr[smallestIndex] = Integer.MAX_VALUE;
         }
-        return AlgorithmsResult.build(newArr, counter.stop(), iterations);
+        return AlgorithmsResult.build(newArr, Counter.stop(), iterations);
     }
 
     private int findSmallest(int[] arr) {
