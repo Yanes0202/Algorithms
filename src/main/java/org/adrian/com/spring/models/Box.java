@@ -1,21 +1,16 @@
 package org.adrian.com.spring.models;
 
-import lombok.Getter;
-import lombok.ToString;
+import lombok.Data;
 
-import java.util.Random;
-
-@ToString
-@Getter
+@Data
 public class Box {
     private static final int MAX_DEPTH = 4;
 
     private final Box[] boxesInside;
-    private final boolean hasKey;
-    static Random random = new Random();
+    private final boolean key;
 
-    public Box(Box[] boxesInside, boolean hasKey) {
+    public Box(Box[] boxesInside, boolean key) {
         this.boxesInside = boxesInside;
-        this.hasKey = hasKey;
+        this.key = key;
     }
 }

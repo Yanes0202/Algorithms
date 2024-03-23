@@ -1,10 +1,8 @@
 package org.adrian.com.spring.models;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class SectionSortSmallestResult {
     private int iteration;
     private int result;
