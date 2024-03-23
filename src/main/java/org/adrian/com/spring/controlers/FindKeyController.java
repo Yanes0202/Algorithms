@@ -2,7 +2,7 @@ package org.adrian.com.spring.controlers;
 
 import org.adrian.com.spring.models.AlgorithmsResult;
 import org.adrian.com.spring.models.Box;
-import org.adrian.com.spring.services.FindKeyService;
+import org.adrian.com.spring.services.algorithms.FindKeyService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

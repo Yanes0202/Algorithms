@@ -1,24 +1,21 @@
-package org.adrian.com.spring.services;
+package org.adrian.com.spring.services.algorithms;
 
 import org.adrian.com.spring.models.AlgorithmsResult;
-import org.adrian.com.utils.Counter;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BinarySearchService {
+public class BinarySearchService extends AbstractService {
 
     public AlgorithmsResult search(int[] list, int expected) {
-        AlgorithmsResult result = new AlgorithmsResult();
-        Counter counter = new Counter();
         counter.start();
+        iterations = 1;
         int low = 0;
         int high = list.length - 1;
-        int iterations = 1;
         while (low <= high) {
             int mid = (low + high) / 2;
             int guess = list[mid];
             if (guess == expected) {
-                return result.build(mid, counter.stop(), iterations);
+                return AlgorithmsResult.build(mid, counter.stop(), iterations);
             }
             if (guess > expected) {
                 high = mid - 1;
@@ -27,6 +24,6 @@ public class BinarySearchService {
             }
             iterations++;
         }
-        return result.build(-1, counter.stop(), iterations);
+        return AlgorithmsResult.build(-1, counter.stop(), iterations);
     }
 }

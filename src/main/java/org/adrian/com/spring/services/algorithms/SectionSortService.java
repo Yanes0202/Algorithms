@@ -1,30 +1,27 @@
-package org.adrian.com.spring.services;
+package org.adrian.com.spring.services.algorithms;
 
 import org.adrian.com.spring.models.AlgorithmsResult;
-import org.adrian.com.spring.models.SectionSortSmallestResult;
 import org.adrian.com.utils.Counter;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SectionSortService {
-    private SectionSortSmallestResult smallestResult;
-    private final AlgorithmsResult result = new AlgorithmsResult();
+    private Integer iterations;
+    private final Counter counter = new Counter();
 
     public AlgorithmsResult sort(int[] arr) {
-        smallestResult = new SectionSortSmallestResult();
-        Counter counter = new Counter();
         counter.start();
+        iterations = 0;
         int[] newArr = new int[arr.length];
         for (int i = 0; i < arr.length; i++) {
-            findSmallest(arr);
-            int smallestIndex = smallestResult.getResult();
+            int smallestIndex = findSmallest(arr);
             newArr[i] = arr[smallestIndex];
             arr[smallestIndex] = Integer.MAX_VALUE;
         }
-        return result.build(newArr, counter.stop(), smallestResult.getIteration());
+        return AlgorithmsResult.build(newArr, counter.stop(), iterations);
     }
 
-    private void findSmallest(int[] arr) {
+    private int findSmallest(int[] arr) {
         int smallest = arr[0];
         int smallestIndex = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -32,8 +29,8 @@ public class SectionSortService {
                 smallest = arr[i];
                 smallestIndex = i;
             }
-            smallestResult.setIteration(smallestResult.getIteration() + 1);
+            iterations++;
         }
-        smallestResult.setResult(smallestIndex);
+        return smallestIndex;
     }
 }

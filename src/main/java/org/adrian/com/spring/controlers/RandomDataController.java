@@ -1,6 +1,6 @@
 package org.adrian.com.spring.controlers;
 
-import org.adrian.com.spring.services.RandomTableService;
+import org.adrian.com.spring.services.generators.RandomTableService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

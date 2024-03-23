@@ -1,4 +1,4 @@
-package org.adrian.com.spring.services;
+package org.adrian.com.spring.services.generators;
 
 import org.springframework.stereotype.Service;
 

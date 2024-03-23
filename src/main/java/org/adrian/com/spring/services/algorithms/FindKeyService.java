@@ -1,31 +1,32 @@
-package org.adrian.com.spring.services;
+package org.adrian.com.spring.services.algorithms;
 
 import org.adrian.com.spring.models.AlgorithmsResult;
 import org.adrian.com.spring.models.Box;
-import org.adrian.com.utils.Counter;
 import org.springframework.stereotype.Service;
 
 import java.util.Deque;
 
 @Service
-public class FindKeyService {
-
-    private static final AlgorithmsResult result = new AlgorithmsResult();
-    private Integer iterations;
-    static Counter counter = new Counter();
+public class FindKeyService extends AbstractService {
 
     public AlgorithmsResult lookForKeyRecursion(Deque<Box> stack) {
         if(iterations == null) iterations = 1;
         counter.start();
         Box checkedBox = stack.pop();
         if (checkedBox.isKey()) {
-            return result.build(true, counter.stop(), iterations);
+            return AlgorithmsResult.build(true, counter.stop(), iterations);
         } else {
             for (Box box: checkedBox.getBoxesInside()) {
                 stack.push(box);
             }
             iterations++;
-            return stack.isEmpty() ? result.build(false, counter.stop(), iterations) : lookForKeyRecursion(stack);
+            if (stack.isEmpty()) {
+                AlgorithmsResult algorithmsResult = AlgorithmsResult.build(false, counter.stop(), iterations);
+                iterations = null;
+                return algorithmsResult;
+            } else {
+                return lookForKeyRecursion(stack);
+            }
         }
     }
 
@@ -35,7 +36,7 @@ public class FindKeyService {
         while (!stack.isEmpty()) {
             Box checkedBox = stack.pop();
             if (checkedBox.isKey()) {
-                return result.build(true, counter.stop(), iterations);
+                return AlgorithmsResult.build(true, counter.stop(), iterations);
             } else {
                 for (Box box : checkedBox.getBoxesInside()) {
                     stack.push(box);
@@ -43,6 +44,6 @@ public class FindKeyService {
                 iterations++;
             }
         }
-        return result.build(false, counter.stop(), iterations);
+        return AlgorithmsResult.build(false, counter.stop(), iterations);
     }
 }

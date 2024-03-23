@@ -1,7 +1,7 @@
 package org.adrian.com.spring.controlers;
 
 import org.adrian.com.spring.models.AlgorithmsResult;
-import org.adrian.com.spring.services.SectionSortService;
+import org.adrian.com.spring.services.algorithms.SectionSortService;
 import org.adrian.com.spring.models.BinarySearchRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

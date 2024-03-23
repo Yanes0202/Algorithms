@@ -1,7 +1,7 @@
 package org.adrian.com.spring.controlers;
 
 import org.adrian.com.spring.models.Box;
-import org.adrian.com.spring.services.BoxService;
+import org.adrian.com.spring.services.generators.BoxService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
