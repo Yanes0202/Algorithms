@@ -1,4 +1,4 @@
-package org.adrian.com.spring.controlers;
+package org.adrian.com.spring.controlers.generators;
 
 import org.adrian.com.spring.models.Box;
 import org.adrian.com.spring.services.generators.BoxService;

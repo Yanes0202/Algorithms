@@ -1,4 +1,4 @@
-package org.adrian.com.spring.controlers;
+package org.adrian.com.spring.controlers.algorithms;
 
 import org.adrian.com.spring.services.algorithms.BinarySearchService;
 import org.adrian.com.spring.models.AlgorithmsResult;

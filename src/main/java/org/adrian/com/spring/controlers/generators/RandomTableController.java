@@ -1,4 +1,4 @@
-package org.adrian.com.spring.controlers;
+package org.adrian.com.spring.controlers.generators;
 
 import org.adrian.com.spring.services.generators.RandomTableService;
 import org.springframework.http.HttpStatus;
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/random")
-public class RandomDataController {
+public class RandomTableController {
     RandomTableService randomTableService;
 
-    public RandomDataController() {
+    public RandomTableController() {
         randomTableService = new RandomTableService();
     }
 
