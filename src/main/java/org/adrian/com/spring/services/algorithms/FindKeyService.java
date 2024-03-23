@@ -2,12 +2,15 @@ package org.adrian.com.spring.services.algorithms;
 
 import org.adrian.com.spring.models.AlgorithmsResult;
 import org.adrian.com.spring.models.Box;
+import org.adrian.com.utils.Counter;
 import org.springframework.stereotype.Service;
 
 import java.util.Deque;
 
 @Service
-public class FindKeyService extends AbstractService {
+public class FindKeyService {
+    private Integer iterations;
+    private final Counter counter = new Counter();
 
     public AlgorithmsResult lookForKeyRecursion(Deque<Box> stack) {
         if(iterations == null) iterations = 1;

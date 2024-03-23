@@ -1,14 +1,16 @@
 package org.adrian.com.spring.services.algorithms;
 
 import org.adrian.com.spring.models.AlgorithmsResult;
+import org.adrian.com.utils.Counter;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BinarySearchService extends AbstractService {
+public class BinarySearchService {
+    private final Counter counter = new Counter();
 
     public AlgorithmsResult search(int[] list, int expected) {
         counter.start();
-        iterations = 1;
+        int iterations = 1;
         int low = 0;
         int high = list.length - 1;
         while (low <= high) {

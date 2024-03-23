@@ -1,6 +1,9 @@
 package org.adrian.com.spring.services.algorithms;
 
-public class QuickSortService extends AbstractService {
+import org.springframework.stereotype.Service;
+
+@Service
+public class QuickSortService {
 
 
 
